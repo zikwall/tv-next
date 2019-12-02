@@ -1,0 +1,41 @@
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.ui_tab, .ui_tabs .ui_tab {
+    color: #656565;
+    float: left;
+    -o-transition: color 0.2s ease;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+.ui_tab_sel, .ui_tabs .ui_tab_sel, .ui_tabs_box .ui_tab_sel {
+    color: #000;
+}
+.ui_tab_sel, .ui_tab_sel:hover, .ui_tabs .ui_tab_sel, .ui_tabs
+.ui_tab_sel:hover, .ui_tabs_box
+.ui_tab_sel, .ui_tabs_box
+.ui_tab_sel:hover {
+    border-bottom: 2px solid #5181b8;
+    padding-bottom: 13px;
+}
+.ui_tab, .ui_tab_plain {
+    display: block;
+    padding: 16px 6px 15px;
+    margin: 0 4px -1px;
+    outline: none;
+}
+.ui_tabs {
+    position: relative;
+    border-bottom: 1px solid #e7e8ec;
+    padding: 0 10px;
+    margin: 0;
+    list-style: none;
+    -ms-user-select: none;
+    user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+}

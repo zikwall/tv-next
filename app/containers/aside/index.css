@@ -1,0 +1,25 @@
+.overlay-on {
+    opacity: 1;
+    z-index: 1100;
+    visibility: visible;
+}
+
+.adonis-playlist {
+    z-index: 1200;
+    width: 595px;
+    max-width: 100%;
+    background: #fff;
+    position: absolute;
+    height: 100vh;
+    color: #868e96;
+    -webkit-box-shadow: 5px 18px 18px 0 rgba(168,179,211,0.38);
+    box-shadow: 5px 18px 18px 0 rgba(168,179,211,0.38);
+}
+
+.adonis-playlist.off-canvas-right.show {
+    transform: translate(-300px, 0);
+}
+
+.adonis-playlist .close-header {
+    padding: 20px;
+}

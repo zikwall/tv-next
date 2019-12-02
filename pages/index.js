@@ -1,22 +1,19 @@
 import React, { useContext } from 'react'
 import Head from 'next/head'
 import { ChannelContex } from "../app/context";
-import Link from "next/link";
+import { MainLayout } from "../app/layouts";
 
 const Home = () => {
     const channels = useContext(ChannelContex);
 
     return (
-        <>
+        <MainLayout title="Home">
             <Head>
                 <title>Просто ТВ</title>
-                <link rel="icon" href="/favicon.ico"/>
             </Head>
 
-            <Link href="/about">
-                <a>About</a>
-            </Link>
-        </>
+            <p>Добро пожаловать на домашнюю страницу</p>
+        </MainLayout>
     );
 };
 
