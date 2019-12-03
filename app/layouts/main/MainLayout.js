@@ -29,7 +29,7 @@ const MainLayout = ({ children, title }) => {
                         </RubberBand>
                     </div>
                     <div className="col-auto d-flex justify-content-end justify-content-lg-end align-items-center navbar-secondary ml-auto">
-                        <div className="mr-2">
+                        <div className="">
                             <Aside>
                                 <HomeAsideContent />
                             </Aside>
