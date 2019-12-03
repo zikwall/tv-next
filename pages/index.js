@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import Head from 'next/head'
+import { connect } from "react-redux";
 import { ChannelContex } from "../app/context";
 import { MainLayout } from "../app/layouts";
 import { ProgramDescription } from '../app/components/program-description'
@@ -26,4 +27,4 @@ const Home = () => {
     );
 };
 
-export default Home
+export default connect(state => state)(Home);

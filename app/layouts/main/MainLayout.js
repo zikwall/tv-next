@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head'
 import { Header } from "../../components/header";
 import { RubberBand } from "../../components/animations";
 import { Aside } from "../../containers/aside";
 import HomeAsideContent from "./HomeAsideContent";
 
-const MainLayout = ({ children, title }) => {
+import { bindActionCreators } from 'redux';
+import { connect } from "react-redux";
+import { fetchChannelsRedux } from '../../services/channels';
+import { getChannelsError, getChannels, getChannelsPending } from '../../redux/reducers';
+import { setChannel } from "../../redux/actions/channels";
+
+const MainLayout = ({ children, title, ...props }) => {
+    useEffect(  () => {
+        props.fetchChannels();
+    }, []);
+
     return (
         <>
             <Head>
@@ -47,4 +57,15 @@ const MainLayout = ({ children, title }) => {
     )
 };
 
-export default MainLayout;
+const mapStateToProps = state => ({
+    error: getChannelsError(state),
+    channels: getChannels(state),
+    pending: getChannelsPending(state)
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    fetchChannels: fetchChannelsRedux,
+    selectChannel: setChannel,
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);

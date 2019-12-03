@@ -1,5 +1,5 @@
-import getChannels from './Channels';
+import getChannels, { fetchChannelsRedux } from './Channels';
 
 export {
-    getChannels
+    getChannels, fetchChannelsRedux
 }

@@ -1,58 +1,54 @@
 import React from 'react'
-import App from 'next/app'
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import App from "next/app";
+import withRedux from "next-redux-wrapper";
+
 import { ChannelContex } from '../app/context';
-import { getChannels } from "../app/services";
+import { SnackbarProvider } from 'notistack';
 
 import '../app/assets/css/main.css'
 import '../app/assets/css/anumation.css';
 import '../app/assets/css/custom.css';
 
-import { SnackbarProvider } from 'notistack';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+const loggerMiddleware = createLogger();
+import rootReducer from '../app/redux/reducers'
+
+
+const makeStore = (initialState, options) => {
+    return createStore(rootReducer, initialState, applyMiddleware(
+        thunkMiddleware,
+        loggerMiddleware
+    ));
+};
 
 class MyApp extends App {
-    // Only uncomment this method if you have blocking data requirements for
-    // every single page in your application. This disables the ability to
-    // perform automatic static optimization, causing every page in your app to
-    // be server-side rendered.
-    //
-    // static async getInitialProps(appContext) {
-    //   // calls page's `getInitialProps` and fills `appProps.pageProps`
-    //   const appProps = await App.getInitialProps(appContext);
-    //
-    //   return { ...appProps }
-    // }
 
     state = {
         channels: null
     };
 
-    componentDidMount = () => {
-        getChannels().then((res) => {
-            if(res.error) {
-                throw(res.error);
-            }
+    componentDidMount = () => {};
 
-            return res;
-        }).catch((error) => {
-            console.log(error)
-        }).then((res) => {
-            this.setState({
-                channels: res
-            });
-        })
-    };
+    //static getInitialProps({store, isServer, pathname, query}) {
+        //return {custom: 'custom'};
+    //
 
     render() {
-        const { Component, pageProps } = this.props;
+        const { Component, pageProps, store } = this.props;
 
         return (
-            <SnackbarProvider maxSnack={ 3 } autoHideDuration={ 2000 }>
-                <ChannelContex.Provider value={ this.state.channels }>
-                    <Component {...pageProps} />
-                </ChannelContex.Provider>
-            </SnackbarProvider>
+            <Provider store={ store }>
+                <SnackbarProvider maxSnack={ 3 } autoHideDuration={ 2000 }>
+                    <ChannelContex.Provider value={ this.state.channels }>
+                        <Component {...pageProps} />
+                    </ChannelContex.Provider>
+                </SnackbarProvider>
+            </Provider>
         )
     }
 }
 
-export default MyApp
+export default withRedux(makeStore)(MyApp)
