@@ -7,6 +7,8 @@ import '../app/assets/css/main.css'
 import '../app/assets/css/anumation.css';
 import '../app/assets/css/custom.css';
 
+import { SnackbarProvider } from 'notistack';
+
 class MyApp extends App {
     // Only uncomment this method if you have blocking data requirements for
     // every single page in your application. This disables the ability to
@@ -44,11 +46,11 @@ class MyApp extends App {
         const { Component, pageProps } = this.props;
 
         return (
-            <>
+            <SnackbarProvider maxSnack={ 3 } autoHideDuration={ 2000 }>
                 <ChannelContex.Provider value={ this.state.channels }>
                     <Component {...pageProps} />
                 </ChannelContex.Provider>
-            </>
+            </SnackbarProvider>
         )
     }
 }
