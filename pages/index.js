@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 import Head from 'next/head'
 import { ChannelContex } from "../app/context";
 import { MainLayout } from "../app/layouts";
-import { Block, BlockBody } from "../app/components/ui";
+import { ProgramDescription } from '../app/components/program-description'
+import { Player } from "../app/containers/player";
 
 const Home = () => {
     const channels = useContext(ChannelContex);
@@ -15,18 +16,10 @@ const Home = () => {
 
             <div className="row">
                 <div className="col-md-9">
-                    <Block>
-                        <BlockBody>
-                            Добро пожаловать на главную страницу
-                        </BlockBody>
-                    </Block>
+                    <Player />
                 </div>
                 <div className="col-md-3">
-                    <Block>
-                        <BlockBody>
-                            Правый блок
-                        </BlockBody>
-                    </Block>
+                    <ProgramDescription />
                 </div>
             </div>
         </MainLayout>
