@@ -1,5 +1,8 @@
 import React from "react";
 import { Menu, MenuActiveItem } from "../../components/ui/menu";
+import { ChannelList } from "../../components/channel-list";
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
+import TrackVisibility from 'react-on-screen';
 
 const HomeAsideContent = () => {
     return (
@@ -18,6 +21,19 @@ const HomeAsideContent = () => {
                     Terms &amp; Privacy
                 </MenuActiveItem>
             </Menu>
+
+            <OverlayScrollbarsComponent
+                options={{
+                    scrollbars: {autoHide: "leave"}
+                }}
+            >
+                <TrackVisibility>
+                    {({ isVisible }) =>
+
+                        <ChannelList search="" />
+                    }
+                </TrackVisibility>
+            </OverlayScrollbarsComponent>
         </>
     )
 };

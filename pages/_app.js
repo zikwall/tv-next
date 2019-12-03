@@ -7,6 +7,8 @@ import withRedux from "next-redux-wrapper";
 import { ChannelContex } from '../app/context';
 import { SnackbarProvider } from 'notistack';
 
+import '@vkontakte/vkui/dist/vkui.css';
+import 'overlayscrollbars/css/OverlayScrollbars.css';
 import '../app/assets/css/main.css'
 import '../app/assets/css/anumation.css';
 import '../app/assets/css/custom.css';
