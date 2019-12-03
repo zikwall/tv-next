@@ -1,0 +1,38 @@
+.ui_rmenu {
+    padding: 6px 0;
+    position: relative;
+}
+.ui_rmenu_item:hover, .ui_rmenu_subitem:hover, .ui_rmenu_item_sel, .ui_rmenu_item_sel:hover {
+    text-decoration: none;
+    background-color: #f0f2f5;
+}
+.ui_rmenu_item, .ui_rmenu_subitem {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 32px;
+    line-height: 31px;
+    padding: 0 5px 0 20px;
+    color: #2a5885;
+    -ms-user-select: none;
+    user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+    cursor: pointer;
+}
+.ui_rmenu_item_sel, .ui_rmenu_item_sel:hover {
+    color: #000;
+    font-weight: 500;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    padding-left: 18px;
+    /*border-left: 2px solid #5181b8;*/
+}
+.ui_rmenu_sep {
+    border-top: 1px solid rgb(231, 232, 236);
+    margin: 6px 15px;
+}
