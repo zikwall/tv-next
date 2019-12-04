@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
-import { MenuLite, Menu } from "../../components/icons";
+import { MenuLite, Menu } from "../../components/ui/icons";
 import classNames  from 'classnames';
 
 const Aside = ({ children }) => {
