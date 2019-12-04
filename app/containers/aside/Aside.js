@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './index.css';
 import { MenuLite, Menu } from "../../components/icons";
-import classname  from 'classnames';
+import classNames  from 'classnames';
 
 const Aside = ({ children }) => {
     const [pulled, setPulled] = useState(false);
@@ -23,17 +23,17 @@ const Aside = ({ children }) => {
                     </span>
                 </a>
 
-                <div className={classname({
+                <div className={ classNames({
                     'off-canvas-overlay': true,
                     'overlay-on': isPulled()
                 })}></div>
 
-                <div className={ classname({
+                <div className={ classNames({
                     'adonis-playlist off-canvas off-canvas-right d-flex flex-column': true,
                     'show': isPulled()
                 })}>
                     <div className="close-header">
-                        <a onClick={ toggle } className="close-offcanvas m-2">
+                        <a onClick={ toggle } className="close-offcanvas m-3" style={{ paddingRight: '1rem' }}>
                             <span className="adonis-icon icon-3x">
                                 <MenuLite />
                             </span>

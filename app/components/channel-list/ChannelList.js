@@ -3,12 +3,13 @@ import { ChannelPlaceholders } from "./ChannelPlaceholder";
 
 import { Group, Cell, List, Avatar, Progress } from "@vkontakte/vkui";
 import Icon24MoreHorizontal from '@vkontakte/icons/dist/24/more_horizontal';
+import { useSnackbar } from "notistack";
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getChannelsError, getChannels, getChannelsPending } from '../../redux/reducers';
 import { setChannel } from "../../redux/actions/channels";
-import { useSnackbar } from "notistack";
+import { MathHelper } from '../../util';
 
 const ChannelList = (props) => {
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -52,7 +53,7 @@ const ChannelList = (props) => {
                        data-epgid={ channel.epg_id }
                        onClick={ handleSelectChannel }> { channel.name }
                     </a>
-                    <Progress value={ randomInteger(0, 100) } />
+                    <Progress value={ MathHelper.randomInteger(0, 100) } />
                 </Cell>
             )
         });
@@ -80,11 +81,6 @@ const ChannelList = (props) => {
             </div>
         </div>
     );
-};
-
-const randomInteger = (min, max) => {
-    let rand = min - 0.5 + Math.random() * (max - min + 1);
-    return Math.round(rand);
 };
 
 const mapStateToProps = state => ({

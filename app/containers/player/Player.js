@@ -6,6 +6,7 @@ import { useSnackbar, WithSnackbarProps } from 'notistack';
 import { ScreenSpinner } from "@vkontakte/vkui";
 import { ArrayHelper } from "../../util";
 import { getChannels, getChannelsPending, getSelectChannel } from "../../redux/reducers";
+import { MathHelper } from '../../util';
 import './index.css';
 
 const Player = (props) => {
@@ -73,14 +74,10 @@ const Player = (props) => {
 
     const validateAd = (ad) => {
         if (ad.includes('{random}')) {
-            ad = ad.replace('{random}', random(1, 4294967295), 'g')
+            ad = ad.replace('{random}', MathHelper.random(1, 4294967295), 'g')
         }
 
         return ad;
-    };
-
-    const random = (max) => {
-        return Math.floor(Math.random() * Math.floor(max));
     };
 
     const generateAd = () => {
