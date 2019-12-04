@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import { RubberBand } from '../../components/animations';
 import './index.css';
 
 const Comment = ({ comments, children }) => {
