@@ -1,10 +1,17 @@
-import React from "react";
-import { Menu, MenuActiveItem } from "../../components/ui/menu";
-import { ChannelList } from "../../components/channel-list";
+import React, { useState } from "react";
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import TrackVisibility from 'react-on-screen';
+import { Menu, MenuActiveItem } from "../../components/ui/menu";
+import { ChannelList } from "../../components/channel-list";
+import { Search } from "../../components/ui";
 
 const HomeAsideContent = () => {
+    const [search, setSearch] = useState('');
+
+    const onSearch = (search) => {
+        setSearch(search);
+    };
+
     return (
         <>
             <Menu>
@@ -22,6 +29,10 @@ const HomeAsideContent = () => {
                 </MenuActiveItem>
             </Menu>
 
+            <div style={{marginBottom: '5px'}}>
+                <Search value={ search } onSearch={ onSearch } />
+            </div>
+
             <OverlayScrollbarsComponent
                 options={{
                     scrollbars: {autoHide: "leave"}
@@ -30,7 +41,7 @@ const HomeAsideContent = () => {
                 <TrackVisibility>
                     {({ isVisible }) =>
 
-                        <ChannelList search="" />
+                        <ChannelList search={ search } />
                     }
                 </TrackVisibility>
             </OverlayScrollbarsComponent>

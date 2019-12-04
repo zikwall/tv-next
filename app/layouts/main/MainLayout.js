@@ -8,13 +8,20 @@ import HomeAsideContent from "./HomeAsideContent";
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 import { fetchChannelsRedux } from '../../services/channels';
-import { getChannelsError, getChannels, getChannelsPending } from '../../redux/reducers';
+import { getChannelsError, getChannels, getChannelsPending, getSelectChannel } from '../../redux/reducers';
 import { setChannel } from "../../redux/actions/channels";
 
 const MainLayout = ({ children, title, ...props }) => {
     useEffect(  () => {
         props.fetchChannels();
     }, []);
+
+    let { channel, pending } = props;
+    let channelName = 'Loading...';
+
+    if (pending === false) {
+        channelName = channel.name;
+    }
 
     return (
         <>
@@ -32,7 +39,7 @@ const MainLayout = ({ children, title, ...props }) => {
                             <div className="brand">
                                 <a className="brand d-flex align-items-center" href="/">
                                     <strong className="p-1 fs-6 fs-lg-8">
-                                        { title }
+                                        { channelName }
                                     </strong>
                                 </a>
                             </div>
@@ -60,7 +67,8 @@ const MainLayout = ({ children, title, ...props }) => {
 const mapStateToProps = state => ({
     error: getChannelsError(state),
     channels: getChannels(state),
-    pending: getChannelsPending(state)
+    pending: getChannelsPending(state),
+    channel: getSelectChannel(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

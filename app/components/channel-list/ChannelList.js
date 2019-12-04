@@ -66,7 +66,7 @@ const ChannelList = (props) => {
     }
 
     return (
-        <div style={{width: '300px', maxHeight: '530px'}}>
+        <div style={{width: '300px', maxHeight: '75vh'}}>
             <div id="sticky-sidebar">
                 <div className="inner-wrapper-sticky" style={{position: 'relative'}}>
                     <Group>

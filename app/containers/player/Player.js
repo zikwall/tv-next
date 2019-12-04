@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactJWPlayer from 'react-jw-player';
-import { ArrayHelper } from "../../util";
+import { connect } from "react-redux";
 import { useSnackbar, WithSnackbarProps } from 'notistack';
+import { ScreenSpinner } from "@vkontakte/vkui";
+import { ArrayHelper } from "../../util";
+import { getChannels, getChannelsPending, getSelectChannel } from "../../redux/reducers";
 import './index.css';
 
 const Player = (props) => {
@@ -17,12 +20,27 @@ const Player = (props) => {
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
     const [ lastAd, setLastAd ] = useState(null);
 
+    let { channel, pending } = props;
+
+    if (pending === true) {
+        return <ScreenSpinner size="l"/>;
+    }
+
+    if (!channel.url) {
+        return <ScreenSpinner size="l"/>
+    }
 
     const playlistVR = [{
         file: 'https://cdn.jwplayer.com/videos/AgqYcfAT-8yQ1cYbs.mp4',
         title: 'Caminandes VR',
         mediaid: 'AgqYcfAT',
         stereomode: 'monoscopic'
+    }];
+
+    const playlist = [{
+        file: channel.url,
+        image: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg',
+        autostart: true,
     }];
 
     const onPlaylist = (e) => {
@@ -86,7 +104,7 @@ const Player = (props) => {
             <ReactJWPlayer
                 playerId='my-unique-id'
                 playerScript='/jw/jw.js'
-                playlist={ playlistVR }
+                playlist={ playlist }
                 isAutoPlay={ true }
                 onReady={ onReady }
                 onError={(e) => {
@@ -114,4 +132,10 @@ Player.propTypes = {
     snack: PropTypes.instanceOf(WithSnackbarProps)
 };
 
-export default Player;
+const mapStateToProps = state => ({
+    channels: getChannels(state),
+    pending: getChannelsPending(state),
+    channel: getSelectChannel(state),
+});
+
+export default connect(mapStateToProps)(Player);
