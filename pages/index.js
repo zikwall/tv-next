@@ -5,6 +5,7 @@ import { ChannelContex } from "../app/context";
 import { MainLayout } from "../app/layouts";
 import { ProgramDescription } from '../app/components/program-description'
 import { Player } from "../app/containers/player";
+import { CommentsList } from "../app/containers/comments";
 
 const Home = () => {
     const channels = useContext(ChannelContex);
@@ -18,6 +19,11 @@ const Home = () => {
             <div className="row">
                 <div className="col-md-9">
                     <Player />
+
+                    <div className="wall_module">
+                        <CommentsList />
+                    </div>
+
                 </div>
                 <div className="col-md-3">
                     <ProgramDescription />
