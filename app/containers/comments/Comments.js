@@ -6,10 +6,12 @@ import './index.css';
 const CreateCommentList = (comments) => {
     const commentList = [];
 
+    let c = 0;
+
     for (let comment of comments) {
         if (comment.hasOwnProperty('replies')) {
             commentList.push(
-                <Comment
+                <Comment key={ c++ }
                     user={ comment.user }
                     message={ comment.message }
                     timecode={ comment.timecode }
@@ -19,7 +21,7 @@ const CreateCommentList = (comments) => {
             continue;
         }
 
-        commentList.push(<Comment
+        commentList.push(<Comment key={ c++ }
             user={ comment.user }
             message={ comment.message }
             timecode={ comment.timecode }
