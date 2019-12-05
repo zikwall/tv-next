@@ -87,7 +87,7 @@ h3.ui.header {
 .ui.comments .comment .actions {
     font-size: .875em;
 }
-ui.comments .comment .actions a:last-child {
+.ui.comments .comment .actions a:last-child {
     margin-right: 0;
 }
 .ui.comments .comment .actions a {
@@ -96,7 +96,9 @@ ui.comments .comment .actions a:last-child {
     margin: 0 .75em 0 0;
     color: rgba(0,0,0,.4);
 }
-
+.ui.comments .comment.hasReplies .actions a.replies {
+    color: #528bcc;
+}
 .ui.comments .comment .comments {
     margin: 0 0 .5em .5em;
     padding: 1em 0 0em 1em;
@@ -109,15 +111,6 @@ ui.comments .comment .actions a:last-child {
 .ui.comments .comment:first-child {
     margin-top: 0;
     padding-top: 0;
-}
-.ui.comments .comment {
-    position: relative;
-    background: 0 0;
-    margin: .5em 0 0;
-    padding: .5em 0 0;
-    border: none;
-    border-top: none;
-    line-height: 1.2;
 }
 .ui.collapsed.comments, .ui.comments .collapsed.comment, .ui.comments .collapsed.comments {
     display: none;

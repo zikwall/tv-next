@@ -6,6 +6,7 @@ import { MainLayout } from "../app/layouts";
 import { ProgramDescription } from '../app/components/program-description'
 import { Player } from "../app/containers/player";
 import { CommentsList } from "../app/containers/comments";
+import { FakeData } from "../app/util";
 
 const Home = () => {
     const channels = useContext(ChannelContex);
@@ -21,7 +22,7 @@ const Home = () => {
                     <Player />
 
                     <div className="wall_module">
-                        <CommentsList />
+                        <CommentsList comments={ FakeData.ExampleCommentSet }/>
                     </div>
 
                 </div>

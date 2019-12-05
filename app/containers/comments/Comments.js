@@ -3,14 +3,45 @@ import classNames from 'classnames';
 import { RubberBand } from '../../components/animations';
 import './index.css';
 
-const Comment = ({ comments, children }) => {
-    const hasComments = comments || false;
+const CreateCommentList = (comments) => {
+    const commentList = [];
+
+    for (let comment of comments) {
+        if (comment.hasOwnProperty('replies')) {
+            commentList.push(
+                <Comment
+                    user={ comment.user }
+                    message={ comment.message }
+                    timecode={ comment.timecode }
+                    replies={ CreateCommentList(comment.replies) }
+                />);
+
+            continue;
+        }
+
+        commentList.push(<Comment
+            user={ comment.user }
+            message={ comment.message }
+            timecode={ comment.timecode }
+        />);
+    }
+
+    return commentList;
+};
+
+const Comment = ({ user, message, timecode, replies }) => {
+    const hasComments = replies || false;
 
     const [ collapsed, setCollapsed ] = useState(true);
 
     const commentsClassNames = classNames({
         'comments': true,
         'collapsed': collapsed
+    });
+
+    const commentClassNames = classNames({
+       'comment': true,
+       'hasReplies': hasComments
     });
 
     const handleClickAllReplies = () => {
@@ -20,17 +51,17 @@ const Comment = ({ comments, children }) => {
     const actionViewAllRepliesMessage = collapsed ? 'View all replies' : 'Hide replies';
 
     return (
-        <div className="comment">
+        <div className={ commentClassNames }>
             <a className="avatar">
-                <img src="https://semantic-ui.com/images/avatar/small/jenny.jpg" />
+                <img src={ user.image } />
             </a>
             <div className="content">
-                <a className="author">Jenny Hess</a>
+                <a className="author">{ user.name }</a>
                 <div className="metadata">
-                    <span className="date">Just now</span>
+                    <span className="date">{ timecode }</span>
                 </div>
                 <div className="text">
-                    Elliot you are always so right :)
+                    { message }
                 </div>
                 <div className="actions">
                     <a className="reply">Reply</a>
@@ -38,7 +69,7 @@ const Comment = ({ comments, children }) => {
                     {
                         hasComments &&
 
-                        <a onClick={ handleClickAllReplies } className="reply">{ actionViewAllRepliesMessage }</a>
+                        <a onClick={ handleClickAllReplies } className="reply replies">{ actionViewAllRepliesMessage }</a>
                     }
                 </div>
             </div>
@@ -47,26 +78,24 @@ const Comment = ({ comments, children }) => {
                 hasComments &&
 
                 <div className={ commentsClassNames }>
-                    { comments }
+                    { replies }
                 </div>
             }
         </div>
     );
 };
 
-const Comments = ({ comments }) => {
+const Comments = ({ replies }) => {
     return (
-        <Comment comments={ comments }/>
+        <Comment replies={ replies }/>
     );
 };
 
-const CommentsList = () => {
+const CommentsList = ({ comments }) => {
     return (
         <div className="ui comments">
             <h3 className="ui dividing header">Comments</h3>
-            <Comment comments={ <Comments comments={ <Comments comments={ <Comments comments={ <Comments /> } /> }/> } /> } />
-            <Comment />
-            <Comment />
+            { CreateCommentList(comments) }
         </div>
     );
 };
