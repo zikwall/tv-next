@@ -23,9 +23,6 @@ const HomeLayout = ({ children, title }) => {
                         <RubberBand>
                             <div className="brand">
                                 <a className="brand d-flex align-items-center" href="/">
-                                    <span className="adonis-icon mr-md-2 color-dark mr-1 icon-5x">
-                                        <img style={{width: '26px'}} src="https://cdn.limehd.tv/images/playlist_1channel.png" />
-                                    </span>
                                     <strong className="p-1 fs-6 fs-lg-8">{ title }</strong>
                                 </a>
                             </div>

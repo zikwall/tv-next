@@ -1,7 +1,7 @@
-import MainLayout from "./home/HomeLayout";
+import HomeLayout from "./home/HomeLayout";
 import ChannelLayout from "./channel/ChannelLayout";
 
 export {
-    MainLayout,
+    HomeLayout,
     ChannelLayout
 }

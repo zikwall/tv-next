@@ -2,7 +2,7 @@ import Head from "next/dist/next-server/lib/head";
 import React from "react";
 import Slider from "react-slick";
 import TrackVisibility from "react-on-screen";
-import { MainLayout } from "../app/layouts";
+import { HomeLayout } from "../app/layouts";
 
 const Item = () => {
     const image ='https://pp.userapi.com/c841025/v841025503/617f7/bkN1Def0s14.jpg';
@@ -38,7 +38,7 @@ const Item = () => {
 
 const ChannelItems = () => {
     return (
-        <div className="item" style={{ width: '15rem' }}>
+        <div className="item" style={{ width: '20rem' }}>
             {[...new Array(5)].map((v, i) => {
                 return <Item key={ i }/>
             })}
@@ -122,7 +122,7 @@ const SlickMultiple = () => {
 
 export default function Index() {
     return (
-        <MainLayout title="Домашняя страница">
+        <HomeLayout title="Домашняя страница">
             <Head>
                 <title>Просто ТВ | Домашняя страница</title>
             </Head>
@@ -143,6 +143,6 @@ export default function Index() {
                 </div>
                 <div className="pt-e-20 pt-e-lg-40"></div>
             </section>
-        </MainLayout>
+        </HomeLayout>
     );
 };
