@@ -1,6 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
+import TrackVisibility from 'react-on-screen';
+import { Menu, MenuActiveItem } from "../../components/ui/menu";
+import { ChannelList } from "../../components/channel-list";
 import { Search } from "../../components/ui";
-import Link from "next/link";
 
 const ChannelAsideContent = () => {
     const [search, setSearch] = useState('');
@@ -11,33 +14,39 @@ const ChannelAsideContent = () => {
 
     return (
         <>
-            <div className="col-md-12">
-                <div className="footer-about">
-                    <div className="widget">
-                        <h5 className="widget-title">Navigation</h5>
-                        <ul className="list-inline vertical-list">
-                            <li><Link href="/">
-                                <a>Go to Home</a>
-                            </Link></li>
-                            <li><Link href="/help">
-                                <a>Help &amp; Support</a>
-                            </Link></li>
-                            <li><Link href="/contact">
-                                <a>Contact</a>
-                            </Link></li>
-                            <li><Link href="/privacy">
-                                <a>Terms &amp; Privacy</a>
-                            </Link></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <Menu>
+                <MenuActiveItem isActive url="/" >
+                    Go to Home
+                </MenuActiveItem>
+                <MenuActiveItem url="/help" >
+                    Help &amp; Support
+                </MenuActiveItem>
+                <MenuActiveItem url="/contact" >
+                    Contact
+                </MenuActiveItem>
+                <MenuActiveItem url="/privacy" >
+                    Terms &amp; Privacy
+                </MenuActiveItem>
+            </Menu>
 
             <div style={{marginBottom: '5px'}}>
                 <Search value={ search } onSearch={ onSearch } />
             </div>
+
+            <OverlayScrollbarsComponent
+                options={{
+                    scrollbars: {autoHide: "leave"}
+                }}
+            >
+                <TrackVisibility>
+                    {({ isVisible }) =>
+
+                        <ChannelList search={ search } />
+                    }
+                </TrackVisibility>
+            </OverlayScrollbarsComponent>
         </>
-    );
+    )
 };
 
 export default ChannelAsideContent;

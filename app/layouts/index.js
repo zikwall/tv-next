@@ -1,4 +1,4 @@
-import MainLayout from "./main/MainLayout";
+import MainLayout from "./home/HomeLayout";
 import ChannelLayout from "./channel/ChannelLayout";
 
 export {

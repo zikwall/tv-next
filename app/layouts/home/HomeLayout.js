@@ -1,33 +1,18 @@
-import React, { useEffect } from 'react';
-import Head from 'next/head'
+import React from 'react';
 import { Header } from "../../components/header";
 import { RubberBand } from "../../components/animations";
 import { Aside } from "../../containers/aside";
 import HomeAsideContent from "./HomeAsideContent";
+import Head from "next/head";
 
-import { bindActionCreators } from 'redux';
-import { connect } from "react-redux";
-import { fetchChannelsRedux } from '../../services/channels';
-import { getChannelsError, getChannels, getChannelsPending, getSelectChannel } from '../../redux/reducers';
-import { setChannel } from "../../redux/actions/channels";
-
-const MainLayout = ({ children, title, ...props }) => {
-    useEffect(  () => {
-        props.fetchChannels();
-    }, []);
-
-    let { channel, pending } = props;
-    let channelName = 'Loading...';
-
-    if (pending === false) {
-        channelName = channel.name;
-    }
-
+const HomeLayout = ({ children, title }) => {
     return (
         <>
             <Head>
                 <link rel="stylesheet" href="https://iconicthemes.net/adonis/assets/vendors/bootstrap/css/bootstrap.min.css" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,700" />
+                <link rel="stylesheet" href="/slick/slick.css" />
+                <link rel="stylesheet" href="/slick/slick-theme.css" />
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Header>
@@ -38,15 +23,16 @@ const MainLayout = ({ children, title, ...props }) => {
                         <RubberBand>
                             <div className="brand">
                                 <a className="brand d-flex align-items-center" href="/">
-                                    <strong className="p-1 fs-6 fs-lg-8">
-                                        { channelName }
-                                    </strong>
+                                    <span className="adonis-icon mr-md-2 color-dark mr-1 icon-5x">
+                                        <img style={{width: '26px'}} src="https://cdn.limehd.tv/images/playlist_1channel.png" />
+                                    </span>
+                                    <strong className="p-1 fs-6 fs-lg-8">{ title }</strong>
                                 </a>
                             </div>
                         </RubberBand>
                     </div>
                     <div className="col-auto d-flex justify-content-end justify-content-lg-end align-items-center navbar-secondary ml-auto">
-                        <div className="">
+                        <div className="mr-2">
                             <Aside>
                                 <HomeAsideContent />
                             </Aside>
@@ -64,16 +50,5 @@ const MainLayout = ({ children, title, ...props }) => {
     )
 };
 
-const mapStateToProps = state => ({
-    error: getChannelsError(state),
-    channels: getChannels(state),
-    pending: getChannelsPending(state),
-    channel: getSelectChannel(state),
-});
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    fetchChannels: fetchChannelsRedux,
-    selectChannel: setChannel,
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);
+export default HomeLayout;

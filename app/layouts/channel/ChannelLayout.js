@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Head from 'next/head'
 import { Header } from "../../components/header";
 import { RubberBand } from "../../components/animations";
 import { Aside } from "../../containers/aside";
-import { getChannelsPending, getSelectChannel } from "../../redux/reducers";
-import { connect } from "react-redux";
 import ChannelAsideContent from "./ChannelAsideContent";
-import Head from "next/head";
 
-const ChannelLayout = (props) => {
-    let { channel, pending, children } = props;
+import { bindActionCreators } from 'redux';
+import { connect } from "react-redux";
+import { fetchChannelsRedux } from '../../services/channels';
+import { getChannelsError, getChannels, getChannelsPending, getSelectChannel } from '../../redux/reducers';
+import { setChannel } from "../../redux/actions/channels";
+
+const ChannelLayout = ({ children, title, ...props }) => {
+    useEffect(  () => {
+        props.fetchChannels();
+    }, []);
+
+    let { channel, pending } = props;
     let channelName = 'Loading...';
 
     if (pending === false) {
@@ -30,16 +38,15 @@ const ChannelLayout = (props) => {
                         <RubberBand>
                             <div className="brand">
                                 <a className="brand d-flex align-items-center" href="/">
-                                    <span className="adonis-icon mr-md-2 color-dark mr-1 icon-5x">
-                                        <img style={{width: '26px'}} src="https://cdn.limehd.tv/images/playlist_1channel.png" />
-                                    </span>
-                                    <strong className="p-1 fs-6 fs-lg-8">{ channelName }</strong>
+                                    <strong className="p-1 fs-6 fs-lg-8">
+                                        { channelName }
+                                    </strong>
                                 </a>
                             </div>
                         </RubberBand>
                     </div>
                     <div className="col-auto d-flex justify-content-end justify-content-lg-end align-items-center navbar-secondary ml-auto">
-                        <div className="mr-2">
+                        <div className="">
                             <Aside>
                                 <ChannelAsideContent />
                             </Aside>
@@ -58,8 +65,15 @@ const ChannelLayout = (props) => {
 };
 
 const mapStateToProps = state => ({
+    error: getChannelsError(state),
+    channels: getChannels(state),
     pending: getChannelsPending(state),
     channel: getSelectChannel(state),
 });
 
-export default connect(mapStateToProps)(ChannelLayout);
+const mapDispatchToProps = dispatch => bindActionCreators({
+    fetchChannels: fetchChannelsRedux,
+    selectChannel: setChannel,
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelLayout);
