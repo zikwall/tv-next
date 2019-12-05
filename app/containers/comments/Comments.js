@@ -69,7 +69,7 @@ const Comment = ({ user, message, timecode, replies }) => {
                     {
                         hasComments &&
 
-                        <a onClick={ handleClickAllReplies } className="reply replies">{ actionViewAllRepliesMessage }</a>
+                        <a onClick={ handleClickAllReplies } className="replies">{ actionViewAllRepliesMessage }</a>
                     }
                 </div>
             </div>
