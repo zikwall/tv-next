@@ -1,4 +1,8 @@
-const withCSS = require('@zeit/next-css')
+const withCSS = require('@zeit/next-css');
+
+// https://github.com/zeit/next-plugins/issues/70
 module.exports = withCSS({
-    /* config options here */
-})
+    cssLoaderOptions: {
+        url: false
+    }
+});
