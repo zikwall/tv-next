@@ -49,7 +49,7 @@ const ChannelItems = () => {
 const SlickMultiple = () => {
     let settings2 = {
         dots: true,
-        infinite: false,
+        infinite: true,
         speed: 500,
         slidesToShow: 6,
         slidesToScroll: 6,
@@ -57,6 +57,7 @@ const SlickMultiple = () => {
         centerMode: false,
         //adaptiveHeight: true,
         //centerMode: true,
+        autoplay: true,
         responsive: [
             {
                 breakpoint: 1400,
@@ -96,6 +97,7 @@ const SlickMultiple = () => {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                     centerMode: true,
+                    autoplay: false,
                 }
             },
             {
@@ -107,6 +109,7 @@ const SlickMultiple = () => {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                     rows: 1,
+                    autoplay: false,
                 }
             }
         ]
@@ -132,7 +135,7 @@ export default function Index() {
                 <div className="title-box">
                     <h4 className="title h3">Channels</h4>
                 </div>
-                <div className="adonis-carousel music-img-box-cont-sm adonis-animate">
+                <div className="music-img-box-cont-sm">
                     <div className="gutter-30">
                         <TrackVisibility>
                             {({ isVisible }) =>
