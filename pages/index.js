@@ -38,7 +38,7 @@ const Item = () => {
 
 const ChannelItems = () => {
     return (
-        <div className="item" style={{ width: '20rem' }}>
+        <div className="item" style={{ width: '15em' }}>
             {[...new Array(5)].map((v, i) => {
                 return <Item key={ i }/>
             })}
@@ -106,6 +106,7 @@ const SlickMultiple = () => {
                     //centerMode: true,
                     slidesToShow: 2,
                     slidesToScroll: 2,
+                    rows: 1,
                 }
             }
         ]
