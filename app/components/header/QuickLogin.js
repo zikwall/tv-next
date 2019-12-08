@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { authenticate } from "../../redux/actions";
+import { FlatButton } from "../ui/button";
 import './quicklogin.css';
 
 const QuickLogin = (props) => {
@@ -38,19 +39,10 @@ const QuickLogin = (props) => {
                 </div>
             </form>
 
-            <button onClick={ handleClickSubmit } className="quick_login_button flat_button button_wide">
-                Войти
-            </button>
-
-            <button className="quick_reg_button flat_button button_wide">
-                Регистрация
-            </button>
+            <FlatButton onClick={ handleClickSubmit } label="Войти" className={['quick_login_button']}/>
+            <FlatButton label="Регистрация" className={['quick_reg_button']}/>
 
             <div className="clear forgot">
-                <div className="checkbox" role="checkbox" aria-checked="false" tabIndex="0">
-                    Чужой компьютер
-                </div>
-
                 <a className="quick_forgot" href="/restore" target="_top">Забыли пароль?</a>
             </div>
         </div>
