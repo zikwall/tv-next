@@ -34,18 +34,3 @@ input.dark {
     text-align: left;
     display: none;
 }
-.checkbox {
-    cursor: pointer;
-    line-height: 1.27em;
-}
-.fakeinput.dark, .fakeinput.dark~.placeholder .ph_input, div[contenteditable=true], div[contenteditable=true]~.placeholder .ph_input, input.dark, input.dark~.placeholder .ph_input, textarea.dark, textarea.dark~.placeholder .ph_input {
-    padding: 5px 9px 7px;
-    border-radius: 3px;
-    box-sizing: border-box;
-}
-.fakeinput, .fakeinput~.placeholder .ph_input, div[contenteditable=true], div[contenteditable=true]~.placeholder .ph_input, input.big_text, input.big_text~.placeholder .ph_input, input.dark, input.dark~.placeholder .ph_input, input.search, input.search~.placeholder .ph_input, input.text, input.text~.placeholder .ph_input, textarea, textarea~.placeholder .ph_input {
-    color: #000;
-    padding: 3px 5px;
-    margin: 0;
-    border: 1px solid #d3d9de;
-}

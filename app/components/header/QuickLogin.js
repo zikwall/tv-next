@@ -39,8 +39,8 @@ const QuickLogin = (props) => {
                 </div>
             </form>
 
-            <FlatButton onClick={ handleClickSubmit } label="Войти" className={['quick_login_button']}/>
-            <FlatButton label="Регистрация" className={['quick_reg_button']}/>
+            <FlatButton onClick={ handleClickSubmit } label="Войти" className={['quick_login_button']} isWide />
+            <FlatButton label="Регистрация" className={['quick_reg_button']} isWide />
 
             <div className="clear forgot">
                 <a className="quick_forgot" href="/restore" target="_top">Забыли пароль?</a>

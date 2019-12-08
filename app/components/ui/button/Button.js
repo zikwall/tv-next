@@ -1,9 +1,10 @@
 import classNames from 'classnames';
 import './index.css';
 
-export const FlatButton = ({ label, onClick, className }) => {
+export const FlatButton = ({ label, onClick, className, isWide }) => {
     let btnClassNames = classNames({
-        "flat_button button_wide": true,
+        "flat_button": true,
+        "button_wide": isWide,
         ...className
     });
 

@@ -28,3 +28,8 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
+.button_big_text.flat_button {
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 3px;
+}
