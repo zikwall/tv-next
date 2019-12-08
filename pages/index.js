@@ -1,8 +1,10 @@
-import Head from "next/dist/next-server/lib/head";
+import Head from "next/head";
+import { connect } from "react-redux";
 import React from "react";
 import Slider from "react-slick";
 import TrackVisibility from "react-on-screen";
 import { HomeLayout } from "../app/layouts";
+import { Initialize } from "../app/services/auth";
 
 const Item = () => {
     const image ='https://pp.userapi.com/c841025/v841025503/617f7/bkN1Def0s14.jpg';
@@ -124,7 +126,7 @@ const SlickMultiple = () => {
     );
 };
 
-export default function Index() {
+const Index = () => {
     return (
         <HomeLayout title="Домашняя страница">
             <Head>
@@ -150,3 +152,5 @@ export default function Index() {
         </HomeLayout>
     );
 };
+
+export default connect(state => state)(Index);

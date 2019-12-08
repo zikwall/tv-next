@@ -2,21 +2,26 @@ import './index.css';
 import Link from "next/link";
 import classNames from 'classnames';
 import { withRouter } from 'next/router';
+import propTypes from 'prop-types';
 import React from 'react';
 
-export const MenuActiveItem = withRouter(({ url, router, children }) => {
+export const MenuActiveItem = withRouter(({ url, router, children, isVisible }) => {
     let isActive = false;
 
     if (router.pathname === url) {
         isActive = true;
     }
 
-    let requiredProps = { isActive, url };
+    let requiredProps = { isActive, url, isVisible };
 
     return <MenuItem { ...requiredProps }>{ children }</MenuItem>;
 });
 
-export const MenuItem = ({ url, children, isActive }) => {
+export const MenuItem = ({ url, children, isActive, isVisible }) => {
+    if (!isVisible) {
+        return null;
+    }
+
     const classItem = classNames({
         "ui_rmenu_item": true,
         "ui_rmenu_item_sel": isActive
@@ -35,4 +40,14 @@ export const Menu = ({ children }) => {
             { children }
         </div>
     );
+};
+
+MenuItem.defaultProps = {
+    isVisible: true,
+};
+
+MenuActiveItem.propTypes = {
+    isVisible: propTypes.bool,
+    url: propTypes.string,
+    isActive: propTypes.bool
 };

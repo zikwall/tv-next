@@ -7,8 +7,9 @@ import { ProgramDescription } from '../app/components/program-description'
 import { Player } from "../app/containers/player";
 import { CommentsList } from "../app/containers/comments";
 import { FakeData } from "../app/util";
+import { Initialize } from "../app/services/auth";
 
-const Channel = () => {
+const Watch = () => {
     const channels = useContext(ChannelContex);
 
     return (
@@ -34,4 +35,4 @@ const Channel = () => {
     );
 };
 
-export default connect(state => state)(Channel);
+export default connect(state => state)(Watch);

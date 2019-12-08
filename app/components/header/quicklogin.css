@@ -1,0 +1,36 @@
+.quick_login {
+    padding: 11px 10px 0;
+}
+.quick_login .label {
+    padding: 0 0 8px;
+    color: #656565;
+    font-size: 12.5px;
+    font-weight: 500;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+}
+.quick_login .labeled {
+    padding-bottom: 13px;
+}
+.quick_login input.dark {
+    width: 149px;
+}
+input.dark {
+    height: 30px;
+}
+.quick_login_button {
+    margin-top: 2px;
+}
+.quick_login .forgot {
+    padding-top: 16px;
+    text-align: center;
+}
+.clear {
+    float: none;
+    clear: both;
+}
+.quick_login .checkbox {
+    padding-bottom: 10px;
+    text-align: left;
+    display: none;
+}

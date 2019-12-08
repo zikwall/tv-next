@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head'
-import { Header } from "../../components/header";
+import { Header, ProfileBar } from "../../components/header";
 import { RubberBand } from "../../components/animations";
 import { Aside } from "../../containers/aside";
-import ChannelAsideContent from "./ChannelAsideContent";
+import WatchAsideContent from "./WatchAsideContent";
 
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
@@ -11,9 +11,14 @@ import { fetchChannelsRedux } from '../../services/channels';
 import { getChannelsError, getChannels, getChannelsPending, getSelectChannel } from '../../redux/reducers';
 import { setChannel } from "../../redux/actions/channels";
 
-const ChannelLayout = ({ children, title, ...props }) => {
+const WatchLayout = ({ children, title, isAuthenticated, ...props }) => {
     useEffect(  () => {
         props.fetchChannels();
+
+        return () => {
+
+        };
+
     }, []);
 
     let { channel, pending } = props;
@@ -46,9 +51,11 @@ const ChannelLayout = ({ children, title, ...props }) => {
                         </RubberBand>
                     </div>
                     <div className="col-auto d-flex justify-content-end justify-content-lg-end align-items-center navbar-secondary ml-auto">
+                        <ProfileBar isAuthenticated={ isAuthenticated } />
+
                         <div className="">
                             <Aside>
-                                <ChannelAsideContent />
+                                <WatchAsideContent />
                             </Aside>
                         </div>
                     </div>
@@ -69,6 +76,7 @@ const mapStateToProps = state => ({
     channels: getChannels(state),
     pending: getChannelsPending(state),
     channel: getSelectChannel(state),
+    isAuthenticated: !!state.authentication.token
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -76,4 +84,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     selectChannel: setChannel,
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelLayout);
+export default connect(mapStateToProps, mapDispatchToProps)(WatchLayout);
