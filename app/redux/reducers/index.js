@@ -3,10 +3,13 @@ import channelsFetchReducer, {
     channelActionReducer, getChannels, getChannelsError, getChannelsPending, getSelectChannel
 } from "./channels";
 
-const rootReducer = combineReducers({channelsFetchReducer, channelActionReducer});
+import authentication from './auth';
+
+const rootReducer = combineReducers({channelsFetchReducer, channelActionReducer, authentication});
 
 export default rootReducer;
 
 export {
-    getChannelsPending, getChannelsError, getChannels, getSelectChannel
+    getChannelsPending, getChannelsError, getChannels, getSelectChannel,
+    authentication
 }

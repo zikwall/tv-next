@@ -29,14 +29,19 @@ const makeStore = (initialState, options) => {
 class MyApp extends App {
 
     state = {
-        channels: null
+        channels: null,
+        activeModal: null,
     };
 
-    componentDidMount = () => {};
-
-    //static getInitialProps({store, isServer, pathname, query}) {
-        //return {custom: 'custom'};
-    //
+    static async getInitialProps({ Component, ctx }) {
+        return {
+            pageProps: {
+                ...(Component.getInitialProps
+                    ? await Component.getInitialProps(ctx)
+                    : {})
+            }
+        };
+    }
 
     render() {
         const { Component, pageProps, store } = this.props;

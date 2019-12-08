@@ -1,4 +1,4 @@
-const API_URL = 'https://tv.zikwall.ru';
+import { API_DOMAIN } from "../../constants";
 
 export const apiFetch = (url, options, useAuth = true) => {
 
@@ -20,5 +20,5 @@ const handleResponse = (response) => {
 };
 
 export const apiUrl = (url) => {
-    return API_URL + url;
+    return API_DOMAIN + url;
 };

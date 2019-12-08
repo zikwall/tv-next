@@ -7,6 +7,7 @@ import { ProgramDescription } from '../app/components/program-description'
 import { Player } from "../app/containers/player";
 import { CommentsList } from "../app/containers/comments";
 import { FakeData } from "../app/util";
+import { Initialize } from "../app/services/auth";
 
 const Channel = () => {
     const channels = useContext(ChannelContex);
@@ -32,6 +33,10 @@ const Channel = () => {
             </div>
         </ChannelLayout>
     );
+};
+
+Channel.getInitialProps = (ctx) => {
+    Initialize(ctx);
 };
 
 export default connect(state => state)(Channel);

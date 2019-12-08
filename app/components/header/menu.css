@@ -1,0 +1,66 @@
+#top_profile_menu.shown {
+    visibility: visible;
+    opacity: 1;
+    top: 48px;
+    pointer-events: auto;
+}
+#top_profile_menu {
+    position: relative;
+    position: absolute;
+    visibility: hidden;
+    width: 171px;
+    top: 60px;
+    right: -1rem;
+    background: #fff;
+    z-index: 800;
+    border: 1px solid #c5d0db;
+    padding: 4px 0;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    opacity: 0;
+    transition: opacity 100ms linear, top 100ms linear, visibility 100ms linear;
+    pointer-events: none;
+}
+#top_profile_menu:before {
+    border-width: 6px;
+    margin: 0 -6px;
+    border-bottom-color: #c5d0db;
+}
+#top_profile_menu:after, #top_profile_menu:before {
+    position: absolute;
+    pointer-events: none;
+    border: solid transparent;
+    content: '';
+    height: 0;
+    width: 0;
+    bottom: 100%;
+    right: 42px;
+}
+.top_profile_mrow {
+    display: block;
+    white-space: nowrap;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+    color: #2a5885;
+}
+.top_profile_sep {
+    margin: 4px 13px;
+    border-top: 1px solid #dbe4ec;
+}
+#top_profile_menu:after {
+    border-width: 5px;
+    margin: 0 -5px;
+    border-bottom-color: #fff;
+}
+#top_profile_menu:after, #top_profile_menu:before {
+    position: absolute;
+    pointer-events: none;
+    border: solid transparent;
+    content: '';
+    height: 0;
+    width: 0;
+    bottom: 100%;
+    right: 42px;
+}

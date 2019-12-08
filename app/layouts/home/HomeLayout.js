@@ -1,11 +1,12 @@
 import React from 'react';
-import { Header } from "../../components/header";
+import { connect } from "react-redux";
+import { Header, ProfileBar } from "../../components/header";
 import { RubberBand } from "../../components/animations";
 import { Aside } from "../../containers/aside";
 import HomeAsideContent from "./HomeAsideContent";
 import Head from "next/head";
 
-const HomeLayout = ({ children, title }) => {
+const HomeLayout = ({ children, title, isAuthenticated }) => {
     return (
         <>
             <Head>
@@ -29,6 +30,7 @@ const HomeLayout = ({ children, title }) => {
                         </RubberBand>
                     </div>
                     <div className="col-auto d-flex justify-content-end justify-content-lg-end align-items-center navbar-secondary ml-auto">
+                        <ProfileBar isAuthenticated={ isAuthenticated } />
                         <div className="mr-2">
                             <Aside>
                                 <HomeAsideContent />
@@ -47,5 +49,8 @@ const HomeLayout = ({ children, title }) => {
     )
 };
 
+const mapStateToProps = state => ({
+    isAuthenticated: !!state.authentication.token
+});
 
-export default HomeLayout;
+export default connect(mapStateToProps)(HomeLayout);
