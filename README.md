@@ -20,17 +20,17 @@
 - [ ] TV Program description
 - [ ] Comment system
 - [ ] Pages:
-- [x] Home
-- [x] Watch
-- [x] Login
-- [ ] Help
-- [ ] Terms
-- [ ] About
-- [ ] Copyright holders
-- [ ] Profile
-- [ ] User Settings
-- [ ] Signup
-- [ ] Password restore
+    - [x] Home
+    - [x] Watch
+    - [x] Login
+    - [ ] Help
+    - [ ] Terms
+    - [ ] About
+    - [ ] Copyright holders
+    - [ ] Profile
+    - [ ] User Settings
+    - [ ] Signup
+    - [ ] Password restore
 
 ### Related Projects
 
