@@ -46,7 +46,6 @@ const deauthenticate = () => {
     };
 };
 
-
 export {
     authenticate,
     reauthenticate,

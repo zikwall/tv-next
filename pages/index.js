@@ -1,4 +1,4 @@
-import Head from "next/dist/next-server/lib/head";
+import Head from "next/head";
 import { connect } from "react-redux";
 import React from "react";
 import Slider from "react-slick";
