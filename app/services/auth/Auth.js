@@ -1,7 +1,8 @@
 import { apiFetch } from "../api";
 import { Cookie } from "../../util";
 import Router from "next/router";
-import {AUTHENTICATE} from "../../redux/types";
+import { AUTHENTICATE } from "../../redux/types";
+import { SESSION_TOKEN_KEY } from "../../constants";
 
 export const authenticate = ({ email, password }, type) => {
     if (type !== 'signin' && type !== 'signup') {
@@ -10,9 +11,9 @@ export const authenticate = ({ email, password }, type) => {
 
     return (dispatch) => {
         apiFetch('/vktv/auth/signin').then((response) => {
-            Cookie.setCookie('token', response.token);
+            Cookie.setCookie(SESSION_TOKEN_KEY, response.token);
             Router.push('/');
-            dispatch({type: AUTHENTICATE, payload: response.token});
+            dispatch({type: AUTHENTICATE, token: response.token});
         }).catch((error) => {
             throw new Error(err);
         });

@@ -126,10 +126,6 @@ const Login = ({ isAuthenticated, authenticate }) => {
     );
 };
 
-Login.getInitialProps = (ctx) => {
-    Initialize(ctx);
-};
-
 const mapStateToProps = (state) => (
     { isAuthenticated: !!state.authentication.token }
 );

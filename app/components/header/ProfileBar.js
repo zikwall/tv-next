@@ -52,7 +52,7 @@ const ProfileBar = ({ isAuthenticated }) => {
                         <div className="user">
                             <img className="rounded-circle" src="/assets/images/user-placeholder-circle-1.png" alt="" />
                         </div>
-                        <span className="ml-2 mt-2 fs-1 d-none d-lg-block">Authorization</span>
+                        <span className="ml-2 mt-2 fs-1 d-none d-lg-block">Maybe come in?</span>
                     </div>
                 </a>
                 <CloseWrapper onEscapeOutside={ handleEscapeOutside }>

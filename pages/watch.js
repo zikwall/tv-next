@@ -9,7 +9,7 @@ import { CommentsList } from "../app/containers/comments";
 import { FakeData } from "../app/util";
 import { Initialize } from "../app/services/auth";
 
-const Channel = () => {
+const Watch = () => {
     const channels = useContext(ChannelContex);
 
     return (
@@ -35,8 +35,4 @@ const Channel = () => {
     );
 };
 
-Channel.getInitialProps = (ctx) => {
-    Initialize(ctx);
-};
-
-export default connect(state => state)(Channel);
+export default connect(state => state)(Watch);

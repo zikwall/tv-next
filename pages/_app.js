@@ -17,6 +17,7 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 const loggerMiddleware = createLogger();
 import rootReducer from '../app/redux/reducers'
+import {Initialize} from "../app/services/auth";
 
 
 const makeStore = (initialState, options) => {
@@ -34,6 +35,8 @@ class MyApp extends App {
     };
 
     static async getInitialProps({ Component, ctx }) {
+        Initialize(ctx);
+
         return {
             pageProps: {
                 ...(Component.getInitialProps

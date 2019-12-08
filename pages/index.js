@@ -153,8 +153,4 @@ const Index = () => {
     );
 };
 
-Index.getInitialProps = (ctx) => {
-    Initialize(ctx);
-};
-
 export default connect(state => state)(Index);

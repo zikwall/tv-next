@@ -1,5 +1,6 @@
 import Initialize from "./Initialize";
+import Session from "./Session";
 
 export {
-    Initialize
+    Initialize, Session
 };

@@ -1,13 +1,25 @@
 import { API_DOMAIN } from "../../constants";
+import { Session } from '../../services/auth';
+import { Cookie } from "../../util";
+import { SESSION_TOKEN_KEY } from "../../constants";
 
 export const apiFetch = (url, options, useAuth = true) => {
+    let headers = {};
 
-    let headers = {
-        'Accept': "application/json",
-        "Content-Type": "application/json",
-    };
+    if (!Session.isGuest()) {
+        headers = {...headers, ...{"Authorization": getAuthorizationHeader()}}
+    }
 
-    return fetch(apiUrl(url), {
+    return pureFetch(apiUrl(url), options, headers);
+};
+
+export const pureFetch = (url, options, headers) => {
+    headers = {...headers, ...{
+            'Accept': "application/json",
+            "Content-Type": "application/json",
+        }};
+
+    return fetch(url, {
         headers: headers,
         ...options
     })
@@ -21,4 +33,8 @@ const handleResponse = (response) => {
 
 export const apiUrl = (url) => {
     return API_DOMAIN + url;
+};
+
+const getAuthorizationHeader = () => {
+    return 'Bearer ' + Cookie.getCookie(SESSION_TOKEN_KEY);
 };

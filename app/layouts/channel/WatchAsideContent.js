@@ -5,7 +5,7 @@ import { ChannelList } from "../../components/channel-list";
 import { Search } from "../../components/ui";
 import { Menu } from "../../components/menu";
 
-const ChannelAsideContent = () => {
+const WatchAsideContent = () => {
     const [search, setSearch] = useState('');
 
     const onSearch = (search) => {
@@ -36,4 +36,4 @@ const ChannelAsideContent = () => {
     )
 };
 
-export default ChannelAsideContent;
+export default WatchAsideContent;

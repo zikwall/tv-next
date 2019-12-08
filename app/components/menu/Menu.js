@@ -11,7 +11,7 @@ const MainMenu =  ({ isAuthenticated }) => {
             <MenuActiveItem url="/help" >
                 Help &amp; Support
             </MenuActiveItem>
-            <MenuActiveItem url="/channel" >
+            <MenuActiveItem url="/watch" >
                 Watch
             </MenuActiveItem>
             <MenuActiveItem url="/login" isVisible={ !isAuthenticated }>

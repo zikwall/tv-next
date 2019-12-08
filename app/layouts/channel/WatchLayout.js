@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head'
-import {Header, ProfileBar} from "../../components/header";
+import { Header, ProfileBar } from "../../components/header";
 import { RubberBand } from "../../components/animations";
 import { Aside } from "../../containers/aside";
-import ChannelAsideContent from "./ChannelAsideContent";
+import WatchAsideContent from "./WatchAsideContent";
 
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
@@ -11,7 +11,7 @@ import { fetchChannelsRedux } from '../../services/channels';
 import { getChannelsError, getChannels, getChannelsPending, getSelectChannel } from '../../redux/reducers';
 import { setChannel } from "../../redux/actions/channels";
 
-const ChannelLayout = ({ children, title, isAuthenticated, ...props }) => {
+const WatchLayout = ({ children, title, isAuthenticated, ...props }) => {
     useEffect(  () => {
         props.fetchChannels();
 
@@ -55,7 +55,7 @@ const ChannelLayout = ({ children, title, isAuthenticated, ...props }) => {
 
                         <div className="">
                             <Aside>
-                                <ChannelAsideContent />
+                                <WatchAsideContent />
                             </Aside>
                         </div>
                     </div>
@@ -84,4 +84,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     selectChannel: setChannel,
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelLayout);
+export default connect(mapStateToProps, mapDispatchToProps)(WatchLayout);
