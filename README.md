@@ -37,3 +37,13 @@
 1. [VK TV Mini App (desktop)](https://github.com/zikwall/vk-tv-desctop)
 2. [VK TV Mini App (mobile)](https://github.com/zikwall/vk-tv)
 3. [Mobile TV (Android, iOS) based React-Native](https://githnb.com/zikwall/react-native-tv)
+4. [Backend based on PHP7 via Yii2 (custom module)](https://github.com/zikwall/vk-tv-backend)
+5. [Playlist parser (PHP)](https://github.com/zikwall/m3uparse)
+6. [Playlist parser (Go)](https://github.com/zikwall/go3uparse)
+
+### Demo [Click](https://tv-next.now.sh)
+
+##### With login:
+
+- Username: zikwall
+- Password: 123456
