@@ -1,10 +1,8 @@
 import React from 'react'
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
 import App from "next/app";
 import withRedux from "next-redux-wrapper";
 
-import { ChannelContex } from '../app/context';
 import { SnackbarProvider } from 'notistack';
 
 import '@vkontakte/vkui/dist/vkui.css';
@@ -13,27 +11,10 @@ import '../app/assets/css/main.css'
 import '../app/assets/css/anumation.css';
 import '../app/assets/css/custom.css';
 
-import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-const loggerMiddleware = createLogger();
-import rootReducer from '../app/redux/reducers'
-import {Initialize} from "../app/services/auth";
-
-
-const makeStore = (initialState, options) => {
-    return createStore(rootReducer, initialState, applyMiddleware(
-        thunkMiddleware,
-        loggerMiddleware
-    ));
-};
+import { makeStore } from "../app/redux/Store";
+import { Initialize } from '../app/services/auth';
 
 class MyApp extends App {
-
-    state = {
-        channels: null,
-        activeModal: null,
-    };
-
     static async getInitialProps({ Component, ctx }) {
         Initialize(ctx);
 
@@ -52,9 +33,7 @@ class MyApp extends App {
         return (
             <Provider store={ store }>
                 <SnackbarProvider maxSnack={ 3 } autoHideDuration={ 2000 }>
-                    <ChannelContex.Provider value={ this.state.channels }>
-                        <Component {...pageProps} />
-                    </ChannelContex.Provider>
+                    <Component {...pageProps} />
                 </SnackbarProvider>
             </Provider>
         )
