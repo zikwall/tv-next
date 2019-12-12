@@ -5,16 +5,20 @@ const getChannels = async () => {
     return await apiFetch('/vktv/api/channels');
 };
 
-export const getChannel = async (id) => {
-    return apiFetch(`/vktv/api/channel?id=${id}`, {}, false).then((response) => {
-        if(response.error) {
-            throw(response.error);
-        }
+export const getChannel = (id) => {
+    //return dispatch => {
+        return apiFetch(`/vktv/api/channel?id=${id}`, {}, false).then((response) => {
+            if (response.error) {
+                throw(response.error);
+            }
 
-        return response;
-    }).catch((error) => {
-        throw(error);
-    });
+            //dispatch(setChannel(response));
+
+            return response;
+        }).catch((error) => {
+            throw new Error(error);
+        });
+    //}
 };
 
 export const fetchChannelsRedux = () => {

@@ -10,11 +10,15 @@ import { getChannel } from "../../app/services/channels/Channels";
 import { getChannelsPending, getSelectChannel} from "../../app/redux/reducers";
 import { setChannel } from "../../app/redux/actions";
 
-const Watch = (props) => {
+const Watch = ({ isServer }) => {
     return (
         <ChannelLayout title="Home">
             <Head>
                 <title>Просто ТВ</title>
+
+                {
+                    isServer && <script type="text/javascript" src="/jw/jw.js"></script>
+                }
             </Head>
 
             <div className="row">
@@ -34,14 +38,15 @@ const Watch = (props) => {
     );
 };
 
-Watch.getInitialProps = async (context) => {
-    const { id } = context.query;
-    const channel = await getChannel(id);
+Watch.getInitialProps = async ({ query, store, isServer }) => {
+    const { id } = query;
 
-    await context.store.dispatch(setChannel(channel));
+    const channel = await getChannel(id);
+    await store.dispatch(setChannel(channel));
 
     return {
-        channel: channel
+        channel: channel,
+        isServer: isServer
     }
 };
 
