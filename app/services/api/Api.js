@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-unfetch';
 import { API_DOMAIN } from "../../constants";
 import { Session } from '../../services/auth';
 import { Cookie } from "../../util";
@@ -6,7 +7,7 @@ import { SESSION_TOKEN_KEY } from "../../constants";
 export const apiFetch = (url, options, useAuth = true) => {
     let headers = {};
 
-    if (!Session.isGuest()) {
+    if (useAuth && !Session.isGuest()) {
         headers = {...headers, ...{"Authorization": getAuthorizationHeader()}}
     }
 

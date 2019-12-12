@@ -34,6 +34,7 @@ const WatchLayout = ({ children, title, isAuthenticated, ...props }) => {
                 <link rel="stylesheet" href="https://iconicthemes.net/adonis/assets/vendors/bootstrap/css/bootstrap.min.css" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,700" />
                 <link rel="icon" href="/favicon.ico"/>
+                {/*<script type="text/javascript" src="/jw/jw.js"></script>*/}
             </Head>
             <Header>
                 <div className="row">
@@ -43,7 +44,7 @@ const WatchLayout = ({ children, title, isAuthenticated, ...props }) => {
                         <RubberBand>
                             <div className="brand">
                                 <a className="brand d-flex align-items-center" href="/">
-                                    <strong className="p-1 fs-6 fs-lg-8">
+                                    <strong id="ooooo" className="p-1 fs-6 fs-lg-8">
                                         { channelName }
                                     </strong>
                                 </a>
@@ -67,6 +68,13 @@ const WatchLayout = ({ children, title, isAuthenticated, ...props }) => {
                     { children }
                 </div>
             </main>
+
+            <style jsx>{`
+        #ooooo {
+            color: tomato!important;
+        }
+      `}
+            </style>;
         </>
     )
 };

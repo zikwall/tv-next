@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'
 import { ChannelPlaceholders } from "./ChannelPlaceholder";
 
 import { Group, Cell, List, Avatar, Progress } from "@vkontakte/vkui";
@@ -48,11 +49,12 @@ const ChannelList = (props) => {
                       }
                 >
 
-                    <a href="#"
-                       data-channelid={ index }
-                       data-epgid={ channel.epg_id }
-                       onClick={ handleSelectChannel }> { channel.name }
-                    </a>
+                    <Link href="/watch/[id]" as={`/watch/${channel.epg_id}`}>
+                        <a>
+                            { channel.name }
+                        </a>
+                    </Link>
+
                     <Progress value={ MathHelper.randomInteger(0, 100) } />
                 </Cell>
             )
