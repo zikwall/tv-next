@@ -4,7 +4,6 @@ import React from "react";
 import Slider from "react-slick";
 import TrackVisibility from "react-on-screen";
 import { HomeLayout } from "../app/layouts";
-import { Initialize } from "../app/services/auth";
 
 const Item = () => {
     const image ='https://pp.userapi.com/c841025/v841025503/617f7/bkN1Def0s14.jpg';

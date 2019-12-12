@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from "react-redux";
 import Router from "next/router";
-import { Initialize } from "../app/services/auth";
 import { Block, BlockBody } from "../app/components/ui";
 import Head from "next/dist/next-server/lib/head";
 import { HomeLayout } from "../app/layouts";
