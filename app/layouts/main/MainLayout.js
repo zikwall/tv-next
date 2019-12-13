@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from "react-redux";
 import { Header, ProfileBar } from "../../components/header";
 import { RubberBand } from "../../components/animations";
 import { Aside } from "../../containers/aside";
@@ -46,4 +47,8 @@ const MainLayout = ({ children, title, isAuthenticated }) => {
     )
 };
 
-export default MainLayout;
+const mapStateToProps = state => ({
+    isAuthenticated: !!state.authentication.token
+});
+
+export default connect(mapStateToProps)(MainLayout);
