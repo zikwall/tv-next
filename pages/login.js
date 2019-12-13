@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Router from "next/router";
 import { Block, BlockBody } from "../app/components/ui";
 import Head from "next/dist/next-server/lib/head";
-import { HomeLayout } from "../app/layouts";
+import { MainLayout } from "../app/layouts";
 import { FlatButton } from '../app/components/ui/button';
 import { authenticate } from "../app/redux/actions";
 import './login.css';
@@ -52,7 +52,7 @@ const Login = ({ isAuthenticated, authenticate }) => {
 
     return (
         <>
-            <HomeLayout title="Авторизация">
+            <MainLayout title="Авторизация">
                 <Head>
                     <title>Просто ТВ | Авторизация</title>
                 </Head>
@@ -120,7 +120,7 @@ const Login = ({ isAuthenticated, authenticate }) => {
                         </Block>
                     </div>
                 </section>
-            </HomeLayout>
+            </MainLayout>
         </>
     );
 };

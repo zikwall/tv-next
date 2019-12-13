@@ -1,30 +1,16 @@
-import React, {useEffect} from 'react';
-import { connect } from "react-redux";
-import Head from "next/head";
-import { bindActionCreators } from "redux";
-import { fetchChannelsRedux } from "../../services/channels";
+import React from 'react';
 import { Header, ProfileBar } from "../../components/header";
 import { RubberBand } from "../../components/animations";
 import { Aside } from "../../containers/aside";
-import HomeAsideContent from "./HomeAsideContent";
+import HomeAsideContent from "./../home/HomeAsideContent";
+import Head from "next/head";
 
-const HomeLayout = ({ children, title, isAuthenticated, fetchChannels }) => {
-    useEffect(  () => {
-        fetchChannels();
-
-        return () => {
-
-        };
-
-    }, []);
-
+const MainLayout = ({ children, title, isAuthenticated }) => {
     return (
         <>
             <Head>
                 <link rel="stylesheet" href="https://iconicthemes.net/adonis/assets/vendors/bootstrap/css/bootstrap.min.css" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,700" />
-                <link rel="stylesheet" href="/slick/slick.css" />
-                <link rel="stylesheet" href="/slick/slick-theme.css" />
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Header>
@@ -60,12 +46,4 @@ const HomeLayout = ({ children, title, isAuthenticated, fetchChannels }) => {
     )
 };
 
-const mapStateToProps = state => ({
-    isAuthenticated: !!state.authentication.token
-});
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-    fetchChannels: fetchChannelsRedux,
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomeLayout);
+export default MainLayout;
