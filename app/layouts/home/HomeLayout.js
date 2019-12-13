@@ -1,12 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchChannelsRedux } from "../../services/channels";
 import { Header, ProfileBar } from "../../components/header";
 import { RubberBand } from "../../components/animations";
 import { Aside } from "../../containers/aside";
 import HomeAsideContent from "./HomeAsideContent";
 import Head from "next/head";
 
-const HomeLayout = ({ children, title, isAuthenticated }) => {
+const HomeLayout = ({ children, title, isAuthenticated, fetchChannels }) => {
+    useEffect(  () => {
+        fetchChannels();
+
+        return () => {
+
+        };
+
+    }, []);
+
     return (
         <>
             <Head>
@@ -53,4 +64,8 @@ const mapStateToProps = state => ({
     isAuthenticated: !!state.authentication.token
 });
 
-export default connect(mapStateToProps)(HomeLayout);
+const mapDispatchToProps = dispatch => bindActionCreators({
+    fetchChannels: fetchChannelsRedux,
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeLayout);

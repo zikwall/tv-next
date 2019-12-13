@@ -4,8 +4,10 @@ import React from "react";
 import Slider from "react-slick";
 import TrackVisibility from "react-on-screen";
 import { HomeLayout } from "../app/layouts";
+import { Wrap, Item } from "../app/components/item";
+import { getChannels } from "../app/redux/reducers";
 
-const Item = () => {
+const Item2 = () => {
     const image ='https://pp.userapi.com/c841025/v841025503/617f7/bkN1Def0s14.jpg';
 
     return (
@@ -125,7 +127,7 @@ const SlickMultiple = () => {
     );
 };
 
-const Index = () => {
+const Index = ({ channels }) => {
     return (
         <HomeLayout title="Домашняя страница">
             <Head>
@@ -137,13 +139,12 @@ const Index = () => {
                     <h4 className="title h3">Channels</h4>
                 </div>
                 <div className="music-img-box-cont-sm">
-                    <div className="gutter-30">
-                        <TrackVisibility>
-                            {({ isVisible }) =>
-
-                                <SlickMultiple />
-                            }
-                        </TrackVisibility>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <Wrap>
+                                { TestChannels(channels) }
+                            </Wrap>
+                        </div>
                     </div>
                 </div>
                 <div className="pt-e-20 pt-e-lg-40"></div>
@@ -152,4 +153,14 @@ const Index = () => {
     );
 };
 
-export default connect(state => state)(Index);
+const TestChannels = (channels) => {
+    return channels.map((channel, index) => {
+        return <Item key={ index } channelName={ channel.name } id={ channel.epg_id }/>
+    });
+};
+
+const mapStateToProps = state => ({
+    channels: getChannels(state),
+});
+
+export default connect(mapStateToProps)(Index);

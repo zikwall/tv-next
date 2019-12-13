@@ -1,5 +1,5 @@
 import HomeLayout from "./home/HomeLayout";
-import ChannelLayout from "./channel/WatchLayout";
+import ChannelLayout from "./watch/WatchLayout";
 
 export {
     HomeLayout,

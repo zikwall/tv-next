@@ -1,0 +1,217 @@
+.watch_page_player_wrap {
+    height: 56px;
+}
+.watch_page_layout .watch_recoms_block {
+    padding: 20px 20px 10px;
+    position: relative;
+}
+.watch_page_layout .watch_page_block__show_all_link {
+    float: right;
+    margin-top: 3px;
+}
+.watch_page_layout .watch_recoms_blocks .watch_recoms_watchs_block, .watch_page_layout .watch_section__recoms .watch_recoms_watchs_block {
+    margin: 4px -4px;
+}
+.watch_page_layout .watch_recoms_blocks .watch_recoms_watchs_block_col_left, .watch_page_layout .watch_section__recoms .watch_recoms_watchs_block_col_left {
+    padding-right: 2px;
+}
+.watch_page_layout .watch_recoms_blocks .watch_recoms_watchs_block_col_left, .watch_page_layout .watch_recoms_blocks .watch_recoms_watchs_block_col_right, .watch_page_layout .watch_section__recoms .watch_recoms_watchs_block_col_left, .watch_page_layout .watch_section__recoms .watch_recoms_watchs_block_col_right {
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+}
+.watch_w_covers .watch_row {
+    height: 54px;
+    padding: 3px 0;
+}
+.watch_row {
+    height: 40px;
+}
+.watch_row {
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    line-height: 1.25;
+    outline: none;
+}
+.watch_row .watch_row_content {
+    height: 100%;
+}
+.watch_w_covers .watch_row .watch_row__cover[style]:not([style=""]) {
+    background-size: cover;
+}
+.watch_w_covers .watch_row .watch_row__cover {
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+    border-radius: 4px;
+    background: #e6edf5 url("data:image/svg+xml;charset=utf-8,%3Csvg%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22m0%200h24v24h-24z%22%20opacity%3D%22.4%22%2F%3E%3Cpath%20d%3D%22m13%2011.4849987v5.6482897c0%204.5123987-.8747233%205.3834431-4.37440289%205.8421935-1.6682259.2186769-3.62559711-.5384568-3.62559711-3.1617096%200-1.2814037.80181302-2.498263%202.46114282-2.8162494%201.26723039-.2428462-.09078118.0181935%202.77607228-.5140396.6959753-.1292083.7748413-.3782301.7748413-.908791%200-.2664094-.0013183-2.5951438-.0022416-4.1936475l-.0073943-.0003862v-4.31781414s-.0054461-2.05827203%200-3.08739758c.0065136-1.23086488.6796458-1.68321833%202.6637921-2.08397579%200%200%203.0232113-.57396781%204.6852252-.87541989.367783-.06670761.6485622.07018054.6485622.49202579%200%200-.0106774%202.62210108%200%204.05433854.0031006.41590408-.168424.60420104-.5899711.67902227-1.6816987.29848801-4.8649278.86036181-4.8649278.86036181-.3738792.09182758-.5451011.35499958-.5451011.73329156z%22%20fill%3D%22%236f99c8%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") no-repeat 50%;
+}
+.watch_w_covers .watch_row .watch_row__cover, .watch_w_covers .watch_row .watch_row__cover_back, .watch_w_covers .watch_row .watch_row__cover_icon, .watch_w_covers .watch_row .watch_row__sound_bars {
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 7px;
+    left: 4px;
+}
+.watch_w_covers .watch_row .watch_row__cover_back {
+    background-color: transparent;
+    transition: background-color 60ms linear;
+    border-radius: 4px;
+}
+.watch_w_covers .watch_row .watch_row__cover_icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2212%22%20fill%3D%22%23FFFFFF%22%2F%3E%3Cpath%20fill%3D%22%23222222%22%20d%3D%22M9.84335571%2C16.7896383%20C9.37758321%2C17.088598%209%2C16.885726%209%2C16.3263902%20L9%2C7.6574922%20C9%2C7.10268766%209.37902442%2C6.89620947%209.84335571%2C7.19424408%20L16.733151%2C11.6165123%20C17.0561878%2C11.8238559%2017.0599966%2C12.1575817%2016.733151%2C12.3673701%20L9.84335571%2C16.7896383%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    display: none;
+}
+.watch_row .watch_row__play_btn {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2212%22%20fill%3D%22%235181B8%22%2F%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M9.846%2016.86c-.467.303-.846.097-.846-.45V7.588c0-.551.38-.752.846-.45l6.91%204.48c.324.21.327.549%200%20.761l-6.91%204.48z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+.watch_w_covers .watch_row .watch_row__inner {
+    padding-left: 54px;
+    height: 48px;
+}
+.watch_row .watch_row__inner {
+    height: 40px;
+    box-sizing: border-box;
+    padding-left: 44px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+.watch_w_covers .watch_row .watch_row__performer_title {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.watch_row .watch_row__performer_title {
+    overflow: hidden;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+.watch_w_covers .watch_row .watch_row__performers {
+    color: #939393;
+}
+.watch_w_covers .watch_row .watch_row__performers, .watch_w_covers .watch_row .watch_row__title {
+    padding: 0;
+    max-width: 100%;
+    color: #000;
+}
+.watch_row .watch_row__performers {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.watch_w_covers .watch_row .watch_row__performers span {
+    color: #939393;
+    font-weight: 400;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+}
+.watch_row .watch_row__performers a {
+    color: #2a5885;
+    font-weight: 500;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+}
+.watch_w_covers .watch_row .watch_row__title {
+    padding-left: 0;
+    font-weight: 500;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    -ms-flex-order: -1;
+    order: -1;
+    margin-bottom: 2px;
+}
+.watch_w_covers .watch_row .watch_row__performers, .watch_w_covers .watch_row .watch_row__title {
+    padding: 0;
+    max-width: 100%;
+}
+.watch_row .watch_row__title {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.watch_row .watch_row__performers, .watch_row .watch_row__title {
+    padding: 12px 0;
+    transition: padding-top 70ms linear;
+    max-width: 70%;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+}
+.watch_w_covers .watch_row .watch_row__title {
+    padding-left: 0;
+    font-weight: 500;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    -ms-flex-order: -1;
+    order: -1;
+    margin-bottom: 2px;
+}
+.watch_row .watch_row__title_inner_subtitle {
+    color: #828282;
+    font-weight: 400;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+}
+.watch_row .watch_row__info {
+    margin-left: 15px;
+    margin-right: 12px;
+    height: 100%;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+.watch_w_covers .watch_row .watch_row__duration {
+    top: 17px;
+}
+.watch_row2.watch_row .watch_row__duration {
+    top: 16px;
+}
+.watch_row .watch_row__duration {
+    top: 13px;
+}
+.watch_row .watch_row__duration-s {
+    min-width: 30px;
+}
+.watch_row .watch_row__duration {
+    color: #939393;
+    position: relative;
+    text-align: right;
+    visibility: hidden;
+}
+.watch_row .watch_player__place {
+    position: absolute;
+    width: 100%;
+    padding: 0 12px 0 32px;
+    box-sizing: border-box;
+    top: 25px;
+}
+
+.watch_row_content:hover {
+    background-color: #f2f4f7;
+    border-radius: 4px;
+}
+._watch_row__cover_icon_visible {
+    display: block!important;
+}
+._watch_row__duration_is_visible {
+    visibility: visible!important;
+}

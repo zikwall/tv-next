@@ -159,3 +159,14 @@ input.big_text {
     height: 35px;
     border-radius: 3px;
 }
+.blind_label, div#utils {
+    position: absolute;
+    overflow: hidden;
+}
+.blind_label {
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    opacity: 0;
+    outline: none;
+}
