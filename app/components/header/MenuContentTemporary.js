@@ -20,7 +20,7 @@ const MenuContentTemporary = ({ deauthenticate }) => {
             <div className="top_profile_sep"></div>
             <a className="top_profile_mrow" href="/admin">Царюшкина админка</a>
             <div className="top_profile_sep"></div>
-            <a onClick={ handleClickLogout } className="top_profile_mrow" href="">Выйти | но зачем :(</a>
+            <a onClick={ handleClickLogout } className="top_profile_mrow" href="">Выйти, но зачем :(</a>
         </>
     );
 };
